@@ -8,14 +8,17 @@ function VideoList(props: {
 }) {
   const { videos, onVideoChange, onPlaylistUpdate } = props;
 
-  const handleDragStart = (e: any, index: number) => {
-    e.dataTransfer.setData("startIndex", index);
+  const handleDragStart = (
+    e: React.DragEvent<HTMLDivElement>,
+    index: number
+  ) => {
+    e.dataTransfer.setData("startIndex", index?.toString());
   };
   const handelDragOver = (e: any) => {
     e.preventDefault();
   };
-  const handleDragEnd = (e: any, index: number) => {
-    const dragStartIndex = e.dataTransfer.getData("startIndex");
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>, index: number) => {
+    const dragStartIndex = parseInt(e.dataTransfer.getData("startIndex"));
     const dragEndIndex = index;
     const updatedPlaylist = [...videos];
     console.log("dragEndIndex", dragStartIndex, dragEndIndex, index);
