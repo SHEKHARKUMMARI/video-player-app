@@ -1,5 +1,5 @@
 "use client";
-import VideoList from "@/components/video-player/list";
+import VideoList from "@/components/video-player/play-list";
 import VideoPalyer from "@/components/video-player/video-container";
 import { ALL_VIDEOS } from "@/constants/videos";
 
